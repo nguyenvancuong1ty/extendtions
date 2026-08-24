@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Proxy Bridge",
+  "version": "1.0.0",
+  "description": "Handles HTTP/SOCKS5 proxy configuration and automated authentication in Chromium browsers.",
+  "permissions": [
+    "proxy",
+    "webRequest",
+    "webRequestAuthProvider",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  }
+}
