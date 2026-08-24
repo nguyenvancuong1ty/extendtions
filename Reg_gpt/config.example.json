@@ -1,0 +1,42 @@
+{
+  "proxy": {
+    "enabled": false,
+    "scheme": "http",
+    "host": "127.0.0.1",
+    "port": 8080,
+    "username": "YOUR_PROXY_USERNAME",
+    "password": "YOUR_PROXY_PASSWORD",
+    "bypass_list": [
+      "localhost",
+      "127.0.0.1"
+    ]
+  },
+  "sms_activate": {
+    "api_key": "YOUR_SMS_ACTIVATE_API_KEY",
+    "base_url": "https://api.sms-activate.io/stubs/handler_api.php",
+    "default_service": "openai",
+    "default_country": "0",
+    "timeout_seconds": 180,
+    "poll_interval_seconds": 5
+  },
+  "mail": {
+    "mode": "imap",
+    "imap": {
+      "host": "imap.example.com",
+      "port": 993,
+      "use_ssl": true,
+      "username": "your-email@example.com",
+      "password": "YOUR_MAIL_APP_PASSWORD",
+      "folder": "INBOX"
+    },
+    "rest_api": {
+      "base_url": "https://mail-api.example.com",
+      "api_token": "YOUR_MAIL_API_TOKEN",
+      "mailbox_id": "YOUR_MAILBOX_ID"
+    },
+    "timeout_seconds": 180,
+    "poll_interval_seconds": 5,
+    "otp_regex": "\\b(\\d{6})\\b",
+    "link_regex": "https?://\\S+"
+  }
+}

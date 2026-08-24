@@ -1,0 +1,1 @@
+[YYYY-MM-DD HH:MM:SS] EMAIL: user@example.com | PASSWORD: replace-with-a-password | PHONE: +0000000000 | NOTES: Example only
