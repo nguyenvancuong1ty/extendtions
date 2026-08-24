@@ -1,0 +1,72 @@
+{
+  "manifest_version": 3,
+  "name": "Google Labs Flow Studio & API Bridge",
+  "version": "1.3.0",
+  "description": "Bắt API Google Flow và đóng vai trò Proxy Bridge kết nối với Web App Canvas Studio (Bypass CORS & reCAPTCHA)",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Google Flow Studio & Bridge",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://labs.google/*",
+    "*://*.google.com/*",
+    "*://*.googleapis.com/*",
+    "http://localhost/*",
+    "http://127.0.0.1/*"
+  ],
+  "externally_connectable": {
+    "matches": [
+      "http://localhost/*",
+      "http://127.0.0.1/*",
+      "https://localhost/*"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://labs.google/*"
+      ],
+      "js": ["content/content.js"],
+      "css": ["content/content.css"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "http://localhost/*",
+        "http://127.0.0.1/*"
+      ],
+      "js": ["content/bridge.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "injected/injected.js",
+        "icons/*"
+      ],
+      "matches": [
+        "*://labs.google/*"
+      ]
+    }
+  ]
+}

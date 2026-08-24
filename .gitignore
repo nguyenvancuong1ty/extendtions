@@ -1,0 +1,2 @@
+# API capture exports can contain credentials from intercepted requests.
+/Gg_flow/Google_Flow_APIs_*.json

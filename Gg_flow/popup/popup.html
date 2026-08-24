@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Flow API Sniffer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="popup-header">
+      <div class="header-branding">
+        <span class="logo-icon">⚡</span>
+        <div>
+          <h2>Google Flow Sniffer</h2>
+          <span class="sub-title">Bắt API Tạo Video & Project</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="btn-popup-export" class="btn-sm" title="Xuất file JSON">💾 Xuất JSON</button>
+        <button id="btn-popup-clear" class="btn-sm btn-danger" title="Xóa logs">🗑️ Xóa</button>
+      </div>
+    </header>
+
+    <!-- Quick Stats -->
+    <div class="stats-bar">
+      <div class="stat-card" id="filter-all">
+        <span class="stat-num" id="stat-total">0</span>
+        <span class="stat-label">Tất cả API</span>
+      </div>
+      <div class="stat-card card-project" id="filter-project">
+        <span class="stat-num" id="stat-project">0</span>
+        <span class="stat-label">📁 Tạo Project</span>
+      </div>
+      <div class="stat-card card-video" id="filter-video">
+        <span class="stat-num" id="stat-video">0</span>
+        <span class="stat-label">🎬 Tạo Video</span>
+      </div>
+    </div>
+
+    <!-- Quick Link to Flow -->
+    <div class="link-bar">
+      <span>Trang mục tiêu:</span>
+      <a href="https://labs.google/fx/tools/flow" target="_blank" class="flow-link">
+        https://labs.google/fx/tools/flow ↗
+      </a>
+    </div>
+
+    <!-- Filter & Search -->
+    <div class="search-bar">
+      <input type="text" id="popup-search" placeholder="🔍 Lọc URL, payload, prompt..." />
+    </div>
+
+    <!-- Request List -->
+    <div class="request-list" id="popup-request-list">
+      <div class="empty-state" id="popup-empty">
+        <div class="empty-icon">📡</div>
+        <p>Chưa bắt được request nào.</p>
+        <span>Mở Google Flow và bấm Tạo Video / Project để xem API tại đây!</span>
+      </div>
+    </div>
+
+    <!-- Modal Xem Chi Tiết -->
+    <div id="popup-detail-modal" class="modal-hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="modal-title">Chi Tiết API</h3>
+          <button id="btn-modal-close">✕</button>
+        </div>
+        <div class="modal-actions">
+          <button id="btn-modal-curl" class="btn-copy btn-primary">📋 Copy cURL</button>
+          <button id="btn-modal-payload" class="btn-copy">📦 Copy Payload</button>
+          <button id="btn-modal-response" class="btn-copy">📥 Copy Response</button>
+          <button id="btn-modal-token" class="btn-copy">🔑 Copy Token</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-section">
+            <label>URL Endpoint:</label>
+            <input type="text" id="modal-url" readonly />
+          </div>
+          <div class="modal-section">
+            <label>Request Body (JSON):</label>
+            <pre><code id="modal-payload-code"></code></pre>
+          </div>
+          <div class="modal-section">
+            <label>Response Body (JSON):</label>
+            <pre><code id="modal-response-code"></code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flow Canvas Studio - Multi-Shot Veo Sequencer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Top Navigation Bar -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="brand">
+          <span class="brand-icon">⚡</span>
+          <div>
+            <h1 class="brand-title">Flow Canvas Studio</h1>
+            <span class="brand-sub">Multi-Shot Veo AI Video Sequencer</span>
+          </div>
+        </div>
+
+        <div class="divider-v"></div>
+
+        <!-- Bridge Status Pill -->
+        <div id="bridge-status-pill" class="status-pill status-connecting" title="Trạng thái kết nối Extension Proxy Bridge">
+          <span class="pulse-dot"></span>
+          <span id="bridge-status-text">Đang kiểm tra Bridge...</span>
+        </div>
+
+        <!-- Project Badge -->
+        <div class="project-pill" id="btn-open-project-modal" title="Click để đổi Project">
+          <span class="pill-icon">📁</span>
+          <span id="current-project-title">Default Project</span>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <button id="btn-add-node" class="btn btn-secondary">
+          <span class="btn-icon">➕</span> Thêm Shot
+        </button>
+        <button id="btn-ai-storyboard" class="btn btn-magic" title="Tự động tạo 3 phân cảnh mẫu">
+          <span class="btn-icon">✨</span> Phân Cảnh Mẫu
+        </button>
+        <button id="btn-run-all" class="btn btn-primary">
+          <span class="btn-icon">▶️</span> RUN ALL SHOTS
+        </button>
+        <button id="btn-view-timeline" class="btn btn-accent" title="Xem chuỗi video ghép nối hoàn chỉnh">
+          <span class="btn-icon">🎞️</span> Xem Ghép Phim
+        </button>
+
+        <div class="divider-v"></div>
+
+        <!-- Log Drawer Toggle -->
+        <button id="btn-toggle-logs" class="btn btn-secondary" title="Mở / Đóng Bảng Log Chi Tiết">
+          <span class="btn-icon">📋</span> Console Log (<span id="log-counter">0</span>)
+        </button>
+
+        <button id="btn-save-project" class="btn-icon-only" title="Lưu Kịch Bản (.json)">💾</button>
+        <button id="btn-load-project" class="btn-icon-only" title="Mở Kịch Bản (.json)">📂</button>
+        <button id="btn-open-settings" class="btn-icon-only" title="Cài đặt Token & Auth">⚙️</button>
+      </div>
+    </header>
+
+    <!-- Main Workspace (Canvas Area) -->
+    <main class="canvas-workspace" id="canvas-viewport">
+      <!-- Background Grid -->
+      <div class="canvas-grid-layer" id="canvas-grid"></div>
+
+      <!-- SVG Layer for Bezier Curve Connection Wires -->
+      <svg class="canvas-connections-layer" id="connections-svg"></svg>
+
+      <!-- Nodes Container (Transformed via Pan & Zoom) -->
+      <div class="canvas-nodes-container" id="nodes-container">
+        <!-- Các Shot Nodes sẽ được render bằng JavaScript tại đây -->
+      </div>
+
+      <!-- Canvas Floating HUD Controls (Zoom / Pan / Fit) -->
+      <div class="canvas-hud">
+        <button id="hud-zoom-in" title="Phóng to">+</button>
+        <span id="hud-zoom-level">100%</span>
+        <button id="hud-zoom-out" title="Thu nhỏ">-</button>
+        <button id="hud-zoom-reset" title="Đặt lại góc nhìn">⟲</button>
+        <button id="hud-fit-all" title="Căn giữa tất cả Shot">⛶</button>
+      </div>
+
+      <!-- Execution Progress Bar (Hiện khi đang bấm RUN ALL) -->
+      <div id="execution-hud" class="execution-hud hud-hidden">
+        <div class="hud-content">
+          <div class="hud-spinner"></div>
+          <div class="hud-info">
+            <span class="hud-title" id="hud-exec-title">Đang Render Cảnh...</span>
+            <span class="hud-desc" id="hud-exec-desc">Tiến độ: 0/3 Shots</span>
+          </div>
+          <button id="hud-exec-cancel" class="btn-sm btn-danger">Hủy</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Bottom Live Debug Log Drawer (Bảng Điều Khiển Log Trực Tiếp) -->
+    <div id="log-drawer" class="log-drawer drawer-collapsed">
+      <div class="log-drawer-header">
+        <div class="log-drawer-title">
+          <span class="dot-live"></span>
+          <strong>Live Debug Console (Ghi Nhận Mọi Request & Lỗi Chi Tiết)</strong>
+        </div>
+        <div class="log-drawer-actions">
+          <button id="btn-copy-all-logs" class="btn-sm btn-secondary">📋 Copy Toàn Bộ Log</button>
+          <button id="btn-clear-logs" class="btn-sm btn-secondary">🗑️ Xóa</button>
+          <button id="btn-close-drawer" class="btn-icon-only">▼</button>
+        </div>
+      </div>
+      <div class="log-drawer-body" id="log-messages-container">
+        <div class="log-empty-msg">Chưa có log. Mọi thao tác và lỗi API sẽ xuất hiện chi tiết tại đây!</div>
+      </div>
+    </div>
+
+    <!-- Modal 1: Xem Toàn Bộ Phim (Timeline Movie Player) -->
+    <div id="modal-timeline" class="modal-overlay modal-hidden">
+      <div class="modal-card modal-large">
+        <div class="modal-header">
+          <div class="modal-title-group">
+            <span class="modal-icon">🎞️</span>
+            <h3>Xem Toàn Bộ Chuỗi Video Phim (Timeline Preview)</h3>
+          </div>
+          <button class="modal-close" data-modal="modal-timeline">✕</button>
+        </div>
+        <div class="modal-body timeline-body">
+          <div class="timeline-player-box">
+            <video id="timeline-video-player" controls autoplay></video>
+            <div id="timeline-empty-msg" class="timeline-empty">
+              <span>Chưa có Shot nào hoàn thành để xem. Hãy bấm Run Shot trước!</span>
+            </div>
+          </div>
+          <div class="timeline-controls">
+            <div class="timeline-shots-bar" id="timeline-shots-list"></div>
+            <div class="timeline-actions">
+              <span id="timeline-current-shot-name">Shot 1: Mở đầu</span>
+              <button id="btn-export-timeline-all" class="btn btn-secondary">⬇ Tải Từng Video Về Máy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2: Cài Đặt Token & Kết Nối (Settings Modal) -->
+    <div id="modal-settings" class="modal-overlay modal-hidden">
+      <div class="modal-card">
+        <div class="modal-header">
+          <div class="modal-title-group">
+            <span class="modal-icon">⚙️</span>
+            <h3>Cài Đặt Token & Kết Nối Extension Bridge</h3>
+          </div>
+          <button class="modal-close" data-modal="modal-settings">✕</button>
+        </div>
+        <div class="modal-body">
+          <p class="settings-hint">
+            Extension Bridge sẽ <strong>tự động lấy Token</strong> khi bạn mở trang <a href="https://labs.google/fx/tools/flow" target="_blank" style="color: #818cf8;">labs.google/fx/tools/flow</a>. Bạn cũng có thể dán Token thủ công bên dưới:
+          </p>
+
+          <div class="form-group">
+            <label>Google Authorization Bearer Token (ya29...):</label>
+            <textarea id="settings-input-token" placeholder="Dán token ya29... vào đây (hoặc để trống để Extension tự bắt)"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Project ID Mặc Định:</label>
+            <input type="text" id="settings-input-project-id" placeholder="vd: b7a26d33-1e21-43eb-b217-2078a909f2d4" />
+          </div>
+
+          <div class="settings-status-box">
+            <div><strong>Trạng thái Bridge:</strong> <span id="settings-bridge-status">Đang kết nối</span></div>
+            <div><strong>Token nhận diện:</strong> <span id="settings-token-status">Chưa có</span></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="btn-save-settings" class="btn btn-primary">Lưu Cài Đặt</button>
+          <button id="btn-test-bridge" class="btn btn-secondary">Kiểm Tra Kết Nối</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden File Input for Loading Project -->
+    <input type="file" id="file-input-project" accept=".json" style="display: none;" />
+  </div>
+
+  <script src="flow-bridge.js"></script>
+  <script src="canvas.js"></script>
+</body>
+</html>
