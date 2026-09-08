@@ -535,19 +535,21 @@
       if (action === 'DOWNLOAD_MEDIA') {
         const mediaName = payload.mediaName;
         const filename = payload.filename || `Flow_Video_${Date.now()}.mp4`;
-        const downloadUrl = `https://aisandbox-pa.googleapis.com/v1/media/${mediaName}:download?alt=media`;
+        const downloadUrl = `https://labs.google/fx/api/trpc/media.getMediaUrlRedirect?name=${mediaName}`;
 
         console.log(`⬇️ [FlowSniffer] Đang tải MP4: ${mediaName}...`);
 
         const res = await originalFetch(downloadUrl, {
           method: 'GET',
-          headers: {
-            ...(token ? { authorization: `Bearer ${token}` } : {}),
-          },
+          // Endpoint này dùng Cookie của trang labs.google thay vì Bearer token
         });
 
         if (!res.ok) {
-          throw new Error(`Lỗi tải video từ Google HTTP ${res.status}`);
+          let errorText = '';
+          try {
+            errorText = await res.text();
+          } catch (e) {}
+          throw new Error(`Lỗi tải video từ Google HTTP ${res.status}. Chi tiết: ${errorText}`);
         }
 
         const blob = await res.blob();
@@ -573,6 +575,35 @@
           },
           '*'
         );
+        return;
+      }
+
+      // ---------------------------------------------------------
+      // Action: GET_VIDEO_DATA (Tải video trả về Base64 cho UI hiển thị)
+      // ---------------------------------------------------------
+      if (action === 'GET_VIDEO_DATA') {
+        const mediaName = payload.mediaName;
+        const downloadUrl = `https://labs.google/fx/api/trpc/media.getMediaUrlRedirect?name=${mediaName}`;
+        
+        const res = await originalFetch(downloadUrl, { method: 'GET' });
+        if (!res.ok) {
+          throw new Error(`Lỗi get data video HTTP ${res.status}`);
+        }
+        
+        const blob = await res.blob();
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          window.postMessage(
+            {
+              target: 'CONTENT_TAB_EXECUTOR_RESPONSE',
+              requestId,
+              success: true,
+              data: { base64Url: reader.result }
+            },
+            '*'
+          );
+        };
+        reader.readAsDataURL(blob);
         return;
       }
     } catch (err) {

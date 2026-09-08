@@ -122,6 +122,7 @@
       try {
         const parsed = JSON.parse(saved);
         if (parsed.nodes && parsed.nodes.length > 0) {
+          parsed.nodes.forEach(n => delete n.videoUrl); // Ép xóa URL cũ để auto-fetch base64
           state.nodes = parsed.nodes;
           state.connections = parsed.connections || [];
           state.projectTitle = parsed.projectTitle || 'Dự Án Phim AI';
@@ -211,10 +212,15 @@
   }
 
   function saveState() {
+    const nodesToSave = state.nodes.map(n => {
+      const copy = { ...n };
+      delete copy.videoUrl; // Đừng lưu base64 vào localStorage kẻo tràn bộ nhớ 5MB
+      return copy;
+    });
     localStorage.setItem(
       'flow_canvas_storyboard_v2',
       JSON.stringify({
-        nodes: state.nodes,
+        nodes: nodesToSave,
         connections: state.connections,
         projectTitle: state.projectTitle,
         activeProjectId: state.activeProjectId,
@@ -531,6 +537,22 @@
         }
       });
     }
+
+    // Auto-fetch video data for rendering if not present
+    if (node.mediaId && !node.videoUrl && node.status === 'completed') {
+      const videoBox = el.querySelector(`#video-box-${node.id}`);
+      if (videoBox) {
+        videoBox.innerHTML = `<div class="video-placeholder"><span>⏳ Đang lấy data video...</span><small>Vui lòng chờ (Base64 Transfer)</small></div>`;
+        window.flowBridge.getVideoData(node.mediaId).then(res => {
+          if (res && res.base64Url) {
+            node.videoUrl = res.base64Url;
+            videoBox.innerHTML = `<video class="node-video-player" src="${node.videoUrl}" controls loop autoplay muted></video>`;
+          }
+        }).catch(err => {
+          videoBox.innerHTML = `<div class="video-placeholder" style="color:#ef4444"><span>❌ Lỗi hiển thị video</span><small>${err.message}</small></div>`;
+        });
+      }
+    }
   }
 
   function renderConnections() {
@@ -764,8 +786,7 @@
       );
 
       node.status = 'completed';
-      const opName = result.media?.name || node.mediaId;
-      node.videoUrl = `https://aisandbox-pa.googleapis.com/v1/media/${opName}:download?alt=media`;
+      node.videoUrl = null; // Sẽ được auto-fetch thành base64 khi gọi renderAll()
 
       saveState();
       renderAll();

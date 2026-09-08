@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cinema Desk — Video Essay Pipeline</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="file-input.css" />
+</head>
+<body>
+  <main>
+    <header class="topbar">
+      <a class="brand" href="#"><span class="brand-mark">C</span> CINEMA DESK</a>
+      <span class="mode"><i></i> PIPELINE ONLINE</span>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">ASIAN CINEMA VIDEO ESSAYS</p>
+      <h1>From film to <em>verdict.</em></h1>
+      <p class="lead">Set the film, pick your permanent host, and create a production brief with every stage visible.</p>
+    </section>
+
+    <section class="workspace">
+      <form id="project-form" class="panel form-panel">
+        <div class="panel-heading"><span>01</span><div><p class="eyebrow">NEW PROJECT</p><h2>Creative brief</h2></div></div>
+        <label>Movie source file
+          <span class="file-picker"><input id="movie-file" name="movie" type="file" accept="video/*,.mkv,.mov,.mp4" required><span id="file-label">Choose video file <b>Browse</b></span></span>
+          <small class="file-note" id="file-note">MP4, MOV or MKV · source stays local</small>
+        </label>
+        <label>Output length<select id="duration" name="duration"><option value="6">6 min</option><option value="9" selected>9 min</option><option value="12">12 min</option><option value="15">15 min</option></select></label>
+        <label>Core question <span class="optional">OPTIONAL</span><textarea id="angle" name="angle" placeholder="What should the viewer question after watching?"></textarea></label>
+        <fieldset><legend>Channel host</legend><div class="hosts">
+          <label class="host-card selected"><input type="radio" name="host" value="aya" checked><span class="avatar aya">A</span><b>Aya</b><small>Calm / incisive</small></label>
+          <label class="host-card"><input type="radio" name="host" value="jin"><span class="avatar jin">J</span><b>Jin</b><small>Warm / cinematic</small></label>
+          <label class="host-card"><input type="radio" name="host" value="min"><span class="avatar min">M</span><b>Min</b><small>Direct / curious</small></label>
+        </div></fieldset>
+        <button id="submit" type="submit">Create production brief <span>→</span></button>
+        <p class="fine-print">The original file creates the proxy, transcript and evidence timeline. Use media you are permitted to use.</p>
+      </form>
+
+      <section class="panel output-panel" aria-live="polite">
+        <div class="empty-state" id="empty-state"><span class="reel">◉</span><p class="eyebrow">AWAITING BRIEF</p><h2>Your pipeline will appear here.</h2><p>Every project starts with a film, a host, and a question worth arguing about.</p></div>
+        <div id="job-view" hidden>
+          <div class="result-top"><div><p class="eyebrow">PROJECT <span id="job-id"></span></p><h2 id="result-title"></h2></div><span id="status-pill" class="status-pill">RUNNING</span></div>
+          <p id="result-question" class="question"></p>
+          <div class="progress-row"><span id="progress-label">Preparing workspace</span><b id="progress-number">0%</b></div><div class="progress-track"><i id="progress-fill"></i></div>
+          <ol id="steps" class="steps"></ol>
+          <article id="deliverable" class="deliverable" hidden><p class="eyebrow">PRODUCTION OUTPUT</p><h3 id="deliverable-headline"></h3><p id="deliverable-runtime"></p><div class="next"><span>Next</span><p id="deliverable-next"></p></div></article>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "YT Studio Extractor",
+  "version": "1.0",
+  "description": "Intercept YouTube Studio Analytics Data",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*.youtube.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "YT Studio Extractor"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["injected.js"],
+      "matches": ["*://*.youtube.com/*"]
+    }
+  ]
+}

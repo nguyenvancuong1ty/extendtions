@@ -256,6 +256,36 @@ async function handleCanvasAction(action, payload = {}, requestId = '') {
       });
     }
 
+    case 'GET_VIDEO_DATA': {
+      const flowTab = await getActiveFlowTab();
+      if (!flowTab) {
+        throw new Error('Vui lòng mở tab https://labs.google/fx/tools/flow để tải data video.');
+      }
+
+      return new Promise((resolve, reject) => {
+        chrome.tabs.sendMessage(
+          flowTab.id,
+          {
+            type: 'EXECUTE_IN_TAB',
+            action: 'GET_VIDEO_DATA',
+            payload,
+            token: authState.token,
+            requestId: requestId || `req_getvid_${Date.now()}`,
+          },
+          (res) => {
+            if (chrome.runtime.lastError) {
+              return reject(new Error(`Lỗi kết nối tab Google Flow: ${chrome.runtime.lastError.message}`));
+            }
+            if (res && res.success) {
+              resolve(res.data);
+            } else {
+              reject(new Error(res?.error || 'Lỗi lấy data video'));
+            }
+          }
+        );
+      });
+    }
+
     default:
       throw new Error(`Action không hợp lệ: ${action}`);
   }

@@ -1,0 +1,1263 @@
+{
+  "activeProjectId": "AI_DIRECTOR_ARCREEL_METHOD",
+  "nodes": [
+    {
+      "id": "node-1",
+      "prompt": "Extreme high-angle wide drone shot, pointing straight down. Crushing abyssal depths. The colossal, monolithic Great Pyramid of Giza rests on the deep ocean floor, completely encrusted in thick dead coral and giant barnacles. A tiny, insignificant scuba diver with a glowing flashlight. Swimming slowly in the extreme foreground, establishing a terrifying massive scale (megalophobia). Pitch black murky green water, dense marine snow, volumetric god rays fading into the dark abyss. Gritty realism, post-apocalyptic cinematic 8k.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750384,
+      "startFrameUrl": null,
+      "x": 100,
+      "y": 200
+    },
+    {
+      "id": "node-2",
+      "prompt": "Camera tilts up slightly. The diver swims deeper into the ancient ruins. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750385,
+      "startFrameUrl": null,
+      "x": 450,
+      "y": 200
+    },
+    {
+      "id": "node-3",
+      "prompt": "Smooth forward tracking shot. The diver swims deeper into the ancient ruins. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750386,
+      "startFrameUrl": null,
+      "x": 800,
+      "y": 200
+    },
+    {
+      "id": "node-4",
+      "prompt": "Camera gently pans right. The diver swims deeper into the ancient ruins. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750387,
+      "startFrameUrl": null,
+      "x": 1150,
+      "y": 200
+    },
+    {
+      "id": "node-5",
+      "prompt": "Camera slowly pushes forward. The diver swims deeper into the ancient ruins. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750388,
+      "startFrameUrl": null,
+      "x": 1500,
+      "y": 200
+    },
+    {
+      "id": "node-6",
+      "prompt": "Camera pans slowly to the left. The diver swims deeper into the ancient ruins. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750389,
+      "startFrameUrl": null,
+      "x": 1850,
+      "y": 200
+    },
+    {
+      "id": "node-7",
+      "prompt": "Camera tilts up slightly. The diver swims deeper into the ancient ruins. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750390,
+      "startFrameUrl": null,
+      "x": 2200,
+      "y": 200
+    },
+    {
+      "id": "node-8",
+      "prompt": "Smooth forward tracking shot. The diver swims deeper into the ancient ruins. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750391,
+      "startFrameUrl": null,
+      "x": 2550,
+      "y": 200
+    },
+    {
+      "id": "node-9",
+      "prompt": "Camera gently pans right. The diver swims deeper into the ancient ruins. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750392,
+      "startFrameUrl": null,
+      "x": 2900,
+      "y": 200
+    },
+    {
+      "id": "node-10",
+      "prompt": "Camera slowly pushes forward. The diver swims deeper into the ancient ruins. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750393,
+      "startFrameUrl": null,
+      "x": 3250,
+      "y": 200
+    },
+    {
+      "id": "node-11",
+      "prompt": "Camera pans slowly to the left. The diver swims deeper into the ancient ruins. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750394,
+      "startFrameUrl": null,
+      "x": 3600,
+      "y": 200
+    },
+    {
+      "id": "node-12",
+      "prompt": "Camera tilts up slightly. The diver swims deeper into the ancient ruins. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750395,
+      "startFrameUrl": null,
+      "x": 3950,
+      "y": 200
+    },
+    {
+      "id": "node-13",
+      "prompt": "Smooth forward tracking shot. The diver swims deeper into the ancient ruins. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750396,
+      "startFrameUrl": null,
+      "x": 4300,
+      "y": 200
+    },
+    {
+      "id": "node-14",
+      "prompt": "Camera gently pans right. The diver swims deeper into the ancient ruins. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750397,
+      "startFrameUrl": null,
+      "x": 4650,
+      "y": 200
+    },
+    {
+      "id": "node-15",
+      "prompt": "Camera slowly pushes forward. The diver swims deeper into the ancient ruins. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750398,
+      "startFrameUrl": null,
+      "x": 5000,
+      "y": 200
+    },
+    {
+      "id": "node-16",
+      "prompt": "Camera pans slowly to the left. The diver swims deeper into the ancient ruins. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750399,
+      "startFrameUrl": null,
+      "x": 5350,
+      "y": 200
+    },
+    {
+      "id": "node-17",
+      "prompt": "Camera tilts up slightly. The diver swims deeper into the ancient ruins. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750400,
+      "startFrameUrl": null,
+      "x": 5700,
+      "y": 200
+    },
+    {
+      "id": "node-18",
+      "prompt": "Smooth forward tracking shot. The diver swims deeper into the ancient ruins. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750401,
+      "startFrameUrl": null,
+      "x": 6050,
+      "y": 200
+    },
+    {
+      "id": "node-19",
+      "prompt": "Camera gently pans right. The diver swims deeper into the ancient ruins. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750402,
+      "startFrameUrl": null,
+      "x": 6400,
+      "y": 200
+    },
+    {
+      "id": "node-20",
+      "prompt": "Camera slowly pushes forward. The diver swims deeper into the ancient ruins. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750403,
+      "startFrameUrl": null,
+      "x": 6750,
+      "y": 200
+    },
+    {
+      "id": "node-21",
+      "prompt": "Camera jerks back violently. A colossal mutated abyssal Nile Crocodile suddenly darts past the lens. The diver takes evasive action. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750404,
+      "startFrameUrl": null,
+      "x": 7100,
+      "y": 200
+    },
+    {
+      "id": "node-22",
+      "prompt": "Camera slowly pushes in. A colossal mutated abyssal Nile Crocodile suddenly darts past the lens. The diver takes evasive action. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750405,
+      "startFrameUrl": null,
+      "x": 7450,
+      "y": 200
+    },
+    {
+      "id": "node-23",
+      "prompt": "Fast tilting down. A colossal mutated abyssal Nile Crocodile suddenly darts past the lens. The diver takes evasive action. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750406,
+      "startFrameUrl": null,
+      "x": 7800,
+      "y": 200
+    },
+    {
+      "id": "node-24",
+      "prompt": "Heavy camera shake, rapid tracking. A colossal mutated abyssal Nile Crocodile suddenly darts past the lens. The diver takes evasive action. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750407,
+      "startFrameUrl": null,
+      "x": 8150,
+      "y": 200
+    },
+    {
+      "id": "node-25",
+      "prompt": "Frantic camera shake, panning left quickly. A colossal mutated abyssal Nile Crocodile suddenly darts past the lens. The diver takes evasive action. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750408,
+      "startFrameUrl": null,
+      "x": 8500,
+      "y": 200
+    },
+    {
+      "id": "node-26",
+      "prompt": "Camera jerks back violently. A colossal mutated abyssal Nile Crocodile suddenly darts past the lens. The diver takes evasive action. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750409,
+      "startFrameUrl": null,
+      "x": 8850,
+      "y": 200
+    },
+    {
+      "id": "node-27",
+      "prompt": "Camera slowly pushes in. A colossal mutated abyssal Nile Crocodile suddenly darts past the lens. The diver takes evasive action. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750410,
+      "startFrameUrl": null,
+      "x": 9200,
+      "y": 200
+    },
+    {
+      "id": "node-28",
+      "prompt": "Fast tilting down. A colossal mutated abyssal Nile Crocodile suddenly darts past the lens. The diver takes evasive action. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750411,
+      "startFrameUrl": null,
+      "x": 9550,
+      "y": 200
+    },
+    {
+      "id": "node-29",
+      "prompt": "Heavy camera shake, rapid tracking. A colossal mutated abyssal Nile Crocodile suddenly darts past the lens. The diver takes evasive action. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750412,
+      "startFrameUrl": null,
+      "x": 9900,
+      "y": 200
+    },
+    {
+      "id": "node-30",
+      "prompt": "Frantic camera shake, panning left quickly. A colossal mutated abyssal Nile Crocodile suddenly darts past the lens. The diver takes evasive action. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750413,
+      "startFrameUrl": null,
+      "x": 10250,
+      "y": 200
+    },
+    {
+      "id": "node-31",
+      "prompt": "Camera jerks back violently. A colossal mutated abyssal Nile Crocodile suddenly darts past the lens. The diver takes evasive action. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750414,
+      "startFrameUrl": null,
+      "x": 10600,
+      "y": 200
+    },
+    {
+      "id": "node-32",
+      "prompt": "Camera slowly pushes in. A colossal mutated abyssal Nile Crocodile suddenly darts past the lens. The diver takes evasive action. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750415,
+      "startFrameUrl": null,
+      "x": 10950,
+      "y": 200
+    },
+    {
+      "id": "node-33",
+      "prompt": "Fast tilting down. A colossal mutated abyssal Nile Crocodile suddenly darts past the lens. The diver takes evasive action. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750416,
+      "startFrameUrl": null,
+      "x": 11300,
+      "y": 200
+    },
+    {
+      "id": "node-34",
+      "prompt": "Heavy camera shake, rapid tracking. A colossal mutated abyssal Nile Crocodile suddenly darts past the lens. The diver takes evasive action. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750417,
+      "startFrameUrl": null,
+      "x": 11650,
+      "y": 200
+    },
+    {
+      "id": "node-35",
+      "prompt": "Frantic camera shake, panning left quickly. A colossal mutated abyssal Nile Crocodile suddenly darts past the lens. The diver takes evasive action. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750418,
+      "startFrameUrl": null,
+      "x": 12000,
+      "y": 200
+    },
+    {
+      "id": "node-36",
+      "prompt": "Camera jerks back violently. A colossal mutated abyssal Nile Crocodile suddenly darts past the lens. The diver takes evasive action. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750419,
+      "startFrameUrl": null,
+      "x": 12350,
+      "y": 200
+    },
+    {
+      "id": "node-37",
+      "prompt": "Camera slowly pushes in. A colossal mutated abyssal Nile Crocodile suddenly darts past the lens. The diver takes evasive action. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750420,
+      "startFrameUrl": null,
+      "x": 12700,
+      "y": 200
+    },
+    {
+      "id": "node-38",
+      "prompt": "Fast tilting down. A colossal mutated abyssal Nile Crocodile suddenly darts past the lens. The diver takes evasive action. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750421,
+      "startFrameUrl": null,
+      "x": 13050,
+      "y": 200
+    },
+    {
+      "id": "node-39",
+      "prompt": "Heavy camera shake, rapid tracking. A colossal mutated abyssal Nile Crocodile suddenly darts past the lens. The diver takes evasive action. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750422,
+      "startFrameUrl": null,
+      "x": 13400,
+      "y": 200
+    },
+    {
+      "id": "node-40",
+      "prompt": "Frantic camera shake, panning left quickly. A colossal mutated abyssal Nile Crocodile suddenly darts past the lens. The diver takes evasive action. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750423,
+      "startFrameUrl": null,
+      "x": 13750,
+      "y": 200
+    },
+    {
+      "id": "node-41",
+      "prompt": "Rapid camera pan looking over the shoulder. Swimming frantically to escape, dodging falling debris. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750424,
+      "startFrameUrl": null,
+      "x": 14100,
+      "y": 200
+    },
+    {
+      "id": "node-42",
+      "prompt": "Violent camera swing to the left. Swimming frantically to escape, dodging falling debris. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750425,
+      "startFrameUrl": null,
+      "x": 14450,
+      "y": 200
+    },
+    {
+      "id": "node-43",
+      "prompt": "Chaotic camera movement. Swimming frantically to escape, dodging falling debris. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750426,
+      "startFrameUrl": null,
+      "x": 14800,
+      "y": 200
+    },
+    {
+      "id": "node-44",
+      "prompt": "Tilting camera upwards. Swimming frantically to escape, dodging falling debris. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750427,
+      "startFrameUrl": null,
+      "x": 15150,
+      "y": 200
+    },
+    {
+      "id": "node-45",
+      "prompt": "Fast shaky camera pushing forward. Swimming frantically to escape, dodging falling debris. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750428,
+      "startFrameUrl": null,
+      "x": 15500,
+      "y": 200
+    },
+    {
+      "id": "node-46",
+      "prompt": "Rapid camera pan looking over the shoulder. Swimming frantically to escape, dodging falling debris. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750429,
+      "startFrameUrl": null,
+      "x": 15850,
+      "y": 200
+    },
+    {
+      "id": "node-47",
+      "prompt": "Violent camera swing to the left. Swimming frantically to escape, dodging falling debris. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750430,
+      "startFrameUrl": null,
+      "x": 16200,
+      "y": 200
+    },
+    {
+      "id": "node-48",
+      "prompt": "Chaotic camera movement. Swimming frantically to escape, dodging falling debris. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750431,
+      "startFrameUrl": null,
+      "x": 16550,
+      "y": 200
+    },
+    {
+      "id": "node-49",
+      "prompt": "Tilting camera upwards. Swimming frantically to escape, dodging falling debris. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750432,
+      "startFrameUrl": null,
+      "x": 16900,
+      "y": 200
+    },
+    {
+      "id": "node-50",
+      "prompt": "Fast shaky camera pushing forward. Swimming frantically to escape, dodging falling debris. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750433,
+      "startFrameUrl": null,
+      "x": 17250,
+      "y": 200
+    },
+    {
+      "id": "node-51",
+      "prompt": "Rapid camera pan looking over the shoulder. Swimming frantically to escape, dodging falling debris. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750434,
+      "startFrameUrl": null,
+      "x": 17600,
+      "y": 200
+    },
+    {
+      "id": "node-52",
+      "prompt": "Violent camera swing to the left. Swimming frantically to escape, dodging falling debris. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750435,
+      "startFrameUrl": null,
+      "x": 17950,
+      "y": 200
+    },
+    {
+      "id": "node-53",
+      "prompt": "Chaotic camera movement. Swimming frantically to escape, dodging falling debris. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750436,
+      "startFrameUrl": null,
+      "x": 18300,
+      "y": 200
+    },
+    {
+      "id": "node-54",
+      "prompt": "Tilting camera upwards. Swimming frantically to escape, dodging falling debris. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750437,
+      "startFrameUrl": null,
+      "x": 18650,
+      "y": 200
+    },
+    {
+      "id": "node-55",
+      "prompt": "Fast shaky camera pushing forward. Swimming frantically to escape, dodging falling debris. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750438,
+      "startFrameUrl": null,
+      "x": 19000,
+      "y": 200
+    },
+    {
+      "id": "node-56",
+      "prompt": "Rapid camera pan looking over the shoulder. Swimming frantically to escape, dodging falling debris. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750439,
+      "startFrameUrl": null,
+      "x": 19350,
+      "y": 200
+    },
+    {
+      "id": "node-57",
+      "prompt": "Violent camera swing to the left. Swimming frantically to escape, dodging falling debris. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750440,
+      "startFrameUrl": null,
+      "x": 19700,
+      "y": 200
+    },
+    {
+      "id": "node-58",
+      "prompt": "Chaotic camera movement. Swimming frantically to escape, dodging falling debris. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750441,
+      "startFrameUrl": null,
+      "x": 20050,
+      "y": 200
+    },
+    {
+      "id": "node-59",
+      "prompt": "Tilting camera upwards. Swimming frantically to escape, dodging falling debris. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750442,
+      "startFrameUrl": null,
+      "x": 20400,
+      "y": 200
+    },
+    {
+      "id": "node-60",
+      "prompt": "Fast shaky camera pushing forward. Swimming frantically to escape, dodging falling debris. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750443,
+      "startFrameUrl": null,
+      "x": 20750,
+      "y": 200
+    },
+    {
+      "id": "node-61",
+      "prompt": "Rapid camera pan looking over the shoulder. Swimming frantically to escape, dodging falling debris. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750444,
+      "startFrameUrl": null,
+      "x": 21100,
+      "y": 200
+    },
+    {
+      "id": "node-62",
+      "prompt": "Violent camera swing to the left. Swimming frantically to escape, dodging falling debris. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750445,
+      "startFrameUrl": null,
+      "x": 21450,
+      "y": 200
+    },
+    {
+      "id": "node-63",
+      "prompt": "Chaotic camera movement. Swimming frantically to escape, dodging falling debris. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750446,
+      "startFrameUrl": null,
+      "x": 21800,
+      "y": 200
+    },
+    {
+      "id": "node-64",
+      "prompt": "Tilting camera upwards. Swimming frantically to escape, dodging falling debris. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750447,
+      "startFrameUrl": null,
+      "x": 22150,
+      "y": 200
+    },
+    {
+      "id": "node-65",
+      "prompt": "Fast shaky camera pushing forward. Swimming frantically to escape, dodging falling debris. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750448,
+      "startFrameUrl": null,
+      "x": 22500,
+      "y": 200
+    },
+    {
+      "id": "node-66",
+      "prompt": "Camera static. Heavy breathing, observing the distant ruins safely. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750449,
+      "startFrameUrl": null,
+      "x": 22850,
+      "y": 200
+    },
+    {
+      "id": "node-67",
+      "prompt": "Smooth slow pan. Heavy breathing, observing the distant ruins safely. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750450,
+      "startFrameUrl": null,
+      "x": 23200,
+      "y": 200
+    },
+    {
+      "id": "node-68",
+      "prompt": "Camera slows down, panning back. Heavy breathing, observing the distant ruins safely. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750451,
+      "startFrameUrl": null,
+      "x": 23550,
+      "y": 200
+    },
+    {
+      "id": "node-69",
+      "prompt": "Slow push forward. Heavy breathing, observing the distant ruins safely. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750452,
+      "startFrameUrl": null,
+      "x": 23900,
+      "y": 200
+    },
+    {
+      "id": "node-70",
+      "prompt": "Camera static. Heavy breathing, observing the distant ruins safely. Dense marine snow swirling, tiny air bubbles rising rapidly.",
+      "mode": "video",
+      "subMode": "frames",
+      "modelKey": "abra_t2v_8s",
+      "aspectRatio": "VIDEO_ASPECT_RATIO_LANDSCAPE",
+      "duration": "8s",
+      "variationsCount": 1,
+      "seed": 750453,
+      "startFrameUrl": null,
+      "x": 24250,
+      "y": 200
+    }
+  ],
+  "connections": [
+    {
+      "from": "node-1",
+      "to": "node-2"
+    },
+    {
+      "from": "node-2",
+      "to": "node-3"
+    },
+    {
+      "from": "node-3",
+      "to": "node-4"
+    },
+    {
+      "from": "node-4",
+      "to": "node-5"
+    },
+    {
+      "from": "node-5",
+      "to": "node-6"
+    },
+    {
+      "from": "node-6",
+      "to": "node-7"
+    },
+    {
+      "from": "node-7",
+      "to": "node-8"
+    },
+    {
+      "from": "node-8",
+      "to": "node-9"
+    },
+    {
+      "from": "node-9",
+      "to": "node-10"
+    },
+    {
+      "from": "node-10",
+      "to": "node-11"
+    },
+    {
+      "from": "node-11",
+      "to": "node-12"
+    },
+    {
+      "from": "node-12",
+      "to": "node-13"
+    },
+    {
+      "from": "node-13",
+      "to": "node-14"
+    },
+    {
+      "from": "node-14",
+      "to": "node-15"
+    },
+    {
+      "from": "node-15",
+      "to": "node-16"
+    },
+    {
+      "from": "node-16",
+      "to": "node-17"
+    },
+    {
+      "from": "node-17",
+      "to": "node-18"
+    },
+    {
+      "from": "node-18",
+      "to": "node-19"
+    },
+    {
+      "from": "node-19",
+      "to": "node-20"
+    },
+    {
+      "from": "node-20",
+      "to": "node-21"
+    },
+    {
+      "from": "node-21",
+      "to": "node-22"
+    },
+    {
+      "from": "node-22",
+      "to": "node-23"
+    },
+    {
+      "from": "node-23",
+      "to": "node-24"
+    },
+    {
+      "from": "node-24",
+      "to": "node-25"
+    },
+    {
+      "from": "node-25",
+      "to": "node-26"
+    },
+    {
+      "from": "node-26",
+      "to": "node-27"
+    },
+    {
+      "from": "node-27",
+      "to": "node-28"
+    },
+    {
+      "from": "node-28",
+      "to": "node-29"
+    },
+    {
+      "from": "node-29",
+      "to": "node-30"
+    },
+    {
+      "from": "node-30",
+      "to": "node-31"
+    },
+    {
+      "from": "node-31",
+      "to": "node-32"
+    },
+    {
+      "from": "node-32",
+      "to": "node-33"
+    },
+    {
+      "from": "node-33",
+      "to": "node-34"
+    },
+    {
+      "from": "node-34",
+      "to": "node-35"
+    },
+    {
+      "from": "node-35",
+      "to": "node-36"
+    },
+    {
+      "from": "node-36",
+      "to": "node-37"
+    },
+    {
+      "from": "node-37",
+      "to": "node-38"
+    },
+    {
+      "from": "node-38",
+      "to": "node-39"
+    },
+    {
+      "from": "node-39",
+      "to": "node-40"
+    },
+    {
+      "from": "node-40",
+      "to": "node-41"
+    },
+    {
+      "from": "node-41",
+      "to": "node-42"
+    },
+    {
+      "from": "node-42",
+      "to": "node-43"
+    },
+    {
+      "from": "node-43",
+      "to": "node-44"
+    },
+    {
+      "from": "node-44",
+      "to": "node-45"
+    },
+    {
+      "from": "node-45",
+      "to": "node-46"
+    },
+    {
+      "from": "node-46",
+      "to": "node-47"
+    },
+    {
+      "from": "node-47",
+      "to": "node-48"
+    },
+    {
+      "from": "node-48",
+      "to": "node-49"
+    },
+    {
+      "from": "node-49",
+      "to": "node-50"
+    },
+    {
+      "from": "node-50",
+      "to": "node-51"
+    },
+    {
+      "from": "node-51",
+      "to": "node-52"
+    },
+    {
+      "from": "node-52",
+      "to": "node-53"
+    },
+    {
+      "from": "node-53",
+      "to": "node-54"
+    },
+    {
+      "from": "node-54",
+      "to": "node-55"
+    },
+    {
+      "from": "node-55",
+      "to": "node-56"
+    },
+    {
+      "from": "node-56",
+      "to": "node-57"
+    },
+    {
+      "from": "node-57",
+      "to": "node-58"
+    },
+    {
+      "from": "node-58",
+      "to": "node-59"
+    },
+    {
+      "from": "node-59",
+      "to": "node-60"
+    },
+    {
+      "from": "node-60",
+      "to": "node-61"
+    },
+    {
+      "from": "node-61",
+      "to": "node-62"
+    },
+    {
+      "from": "node-62",
+      "to": "node-63"
+    },
+    {
+      "from": "node-63",
+      "to": "node-64"
+    },
+    {
+      "from": "node-64",
+      "to": "node-65"
+    },
+    {
+      "from": "node-65",
+      "to": "node-66"
+    },
+    {
+      "from": "node-66",
+      "to": "node-67"
+    },
+    {
+      "from": "node-67",
+      "to": "node-68"
+    },
+    {
+      "from": "node-68",
+      "to": "node-69"
+    },
+    {
+      "from": "node-69",
+      "to": "node-70"
+    }
+  ]
+}

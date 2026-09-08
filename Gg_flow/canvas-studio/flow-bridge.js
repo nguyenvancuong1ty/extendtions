@@ -154,6 +154,11 @@ class FlowBridge {
     return await this.send('DOWNLOAD_MEDIA', { mediaName, filename });
   }
 
+  async getVideoData(mediaName) {
+    this.emitLog('info', `Đang fetch data video để hiển thị: ${mediaName}...`);
+    return await this.send('GET_VIDEO_DATA', { mediaName });
+  }
+
   async checkStatus(mediaList) {
     return await this.send('CHECK_STATUS', { media: mediaList });
   }
