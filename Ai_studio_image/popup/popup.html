@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Studio Image Studio</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-wrap">
+    <!-- Header -->
+    <header class="popup-head">
+      <div class="brand">
+        <span class="brand-sparkle">✨</span>
+        <div>
+          <h1>AI Studio Studio</h1>
+          <span class="badge-model">gemini-3.1-flash-lite-image</span>
+        </div>
+      </div>
+      <div class="head-status" id="tab-status-indicator">
+        <span class="dot-online"></span> Đang kết nối
+      </div>
+    </header>
+
+    <!-- Nút Mở Studio Panel Ngay Trên Trang -->
+    <button id="btn-open-panel-in-page" class="btn-highlight">
+      🖥️ Mở Bảng Điều Khiển Trên Trang (Studio Panel)
+    </button>
+
+    <!-- Stats summary -->
+    <div class="stats-grid">
+      <div class="stat-box">
+        <span class="stat-val" id="stat-images">0</span>
+        <span class="stat-lbl">📷 Ảnh đã tạo</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-val" id="stat-apis">0</span>
+        <span class="stat-lbl">📡 API đã bắt</span>
+      </div>
+    </div>
+
+    <!-- Quick Navigation to AI Studio -->
+    <div class="quick-nav-box">
+      <div class="nav-text">
+        <strong>Trang tạo ảnh Google AI Studio:</strong>
+        <span class="url-text">aistudio.google.com/prompts/new_chat</span>
+      </div>
+      <button id="btn-open-ai-studio" class="btn-action-primary">🚀 Mở AI Studio Tab Mới</button>
+    </div>
+
+    <!-- Quick Generator -->
+    <div class="quick-prompt-section">
+      <label class="quick-label">⚡ Tạo ảnh nhanh (Quick Prompt):</label>
+      <div class="quick-input-group">
+        <input type="text" id="quick-prompt-input" placeholder="Ví dụ: A cute neon cyberpunk cat in Tokyo..." />
+        <button id="btn-quick-run" class="btn-run">Gửi</button>
+      </div>
+      <span class="quick-hint">Lệnh sẽ được gửi trực tiếp tới tab AI Studio đang mở</span>
+    </div>
+
+    <!-- Recent Images Preview -->
+    <div class="recent-images-section">
+      <div class="recent-header">
+        <span>Ảnh gần đây</span>
+        <button id="btn-clear-storage" class="btn-link">Xóa lịch sử</button>
+      </div>
+      <div class="recent-grid" id="recent-images-grid">
+        <div class="recent-empty">Chưa có ảnh nào được tạo</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

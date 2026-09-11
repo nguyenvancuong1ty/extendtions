@@ -1,0 +1,63 @@
+{
+  "manifest_version": 3,
+  "name": "Google AI Studio Image Generator & Sniffer",
+  "version": "1.0.0",
+  "description": "Tự động bắt API, bóc tách ảnh AI, batch tạo ảnh hàng loạt và tải ảnh từ Google AI Studio (hỗ trợ gemini-3.1-flash-lite-image)",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "AI Studio Image Generator & Sniffer",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs",
+    "downloads",
+    "webRequest",
+    "debugger",
+    "unlimitedStorage"
+  ],
+  "host_permissions": [
+    "*://aistudio.google.com/*",
+    "*://alkalimakersuite-pa.clients6.google.com/*",
+    "*://generativelanguage.googleapis.com/*",
+    "*://*.google.com/*",
+    "*://*.googleapis.com/*",
+    "http://localhost/*",
+    "http://127.0.0.1/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://aistudio.google.com/*"
+      ],
+      "js": ["content/content.js"],
+      "css": ["content/content.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "injected/injected.js",
+        "icons/*"
+      ],
+      "matches": [
+        "*://aistudio.google.com/*"
+      ]
+    }
+  ]
+}

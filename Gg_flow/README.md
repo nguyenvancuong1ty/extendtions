@@ -1,63 +1,40 @@
-# Google Labs Flow API Sniffer (Chrome / Edge Extension)
+# Google Flow Studio & API Bridge (Video & 0-Credit Image Generator) - v2.0.0
 
-Extension trình duyệt (Manifest V3) chuyên dụng để tự động bắt, phân tích và trích xuất toàn bộ các lệnh API khi bạn sử dụng công cụ **Google Labs FX Flow** tại địa chỉ:  
-🔗 **https://labs.google/fx/tools/flow**
+Extension trình duyệt (Manifest V3) đa năng dành riêng cho Google Flow tại địa chỉ:  
+🔗 **https://flow.google.com** & **https://labs.google/fx/tools/flow**
 
 ---
 
 ## ✨ Tính Năng Nổi Bật
 
-1. **Tự động bắt mạng ở tầng sâu (Deep Hooking)**:
-   - Hook trực tiếp `window.fetch` và `XMLHttpRequest` trong ngữ cảnh trang (Main World).
-   - Bắt trọn vẹn: **URL Endpoint**, **HTTP Method**, **Headers (kèm Token / Bearer / Cookies)**, **Request Payload**, **Response Payload**, **Thời gian phản hồi (ms)**.
+### 🎨 1. Tự Động Tạo Ảnh Hàng Loạt (0 Credits - Nano Banana 2 Lite)
+- **Hoàn toàn 0 Credit**: Sử dụng mô hình `Nano Banana 2 Lite` (`gemini-3.1-flash-lite-image`), không tiêu tốn quỹ credit tháng của tài khoản Google One AI Premium (PRO).
+- **Tùy biến tỉ lệ & số lượng**:
+  - Tỉ lệ khung hình: `16:9` (Phong cảnh), `1:1` (Vuông Avatar), `4:3` (Chuẩn), `3:4` (Dọc vừa), `9:16` (TikTok/Shorts).
+  - Biến thể: `x1`, `x2`, `x3`, `x4` ảnh đồng thời cho mỗi prompt.
+- **Tự động tải về máy**: Tải ảnh chất lượng cao `.PNG` về máy tính theo đúng tên câu prompt.
+- **Chạy nền không bị dừng (Anti-Throttling)**: Tích hợp cơ chế Web Audio Keep-Alive và Visibility State Spoofing, giúp extension tiếp tục tạo ảnh liên tục dù bạn chuyển sang tab khác hay thu nhỏ trình duyệt.
 
-2. **Phân loại thông minh (Smart Categorization)**:
-   - 📁 **Tạo Project**: Tự động nhận diện các API khởi tạo Project / Workspace trên Google Flow.
-   - 🎬 **Tạo Video / Generate**: Nhận diện các lệnh render video, prompt, sinh video qua mô hình Veo / Imagen / VideoFX.
-   - ⏳ **Tiến độ / Polling**: Bắt các request theo dõi trạng thái tiến trình xử lý video (`/operations/`, `/poll`).
-   - 🌐 **API Khác**: Lưu lại các API cấu hình, thông tin tài khoản, auth token,...
+### 🖼️ 2. Bộ Sưu Tập Ảnh (In-Page Gallery & Lightbox)
+- Lưu trữ toàn bộ ảnh đã tạo ngay trong giao diện trang.
+- Xem trước phóng to (Lightbox) cực nét.
+- Nút Copy Prompt và Tải từng ảnh hoặc Tải tất cả ảnh với 1 click.
 
-3. **Giao diện Nổi trực tiếp trên trang (In-Page Floating Widget)**:
-   - Một thanh widget tinh tế ở góc dưới bên phải màn hình `labs.google/fx/tools/flow`.
-   - Hiển thị số lượng request bắt được theo thời gian thực.
-   - Bấm mở rộng để xem bảng điều khiển chia đôi (Split View) như DevTools thu nhỏ.
-
-4. **Trích xuất cURL & Payload với 1 click**:
-   - 📋 **Copy cURL**: Tự động chuyển đổi request thành câu lệnh `curl` chuẩn (sẵn sàng dán vào Terminal, Postman, Insomnia, Python,...).
-   - 📦 **Copy Payload**: Copy toàn bộ Request Body dưới dạng JSON chuẩn.
-   - 📥 **Copy Response**: Copy dữ liệu phản hồi từ máy chủ Google.
-   - 🔑 **Copy Token**: Tự động trích xuất Bearer Token hoặc `x-goog-api-key`.
-   - 💾 **Xuất file JSON**: Tải về toàn bộ lịch sử API đã bắt để phân tích offline.
-
-5. **Popup tiện ích**:
-   - Bấm vào icon extension trên thanh công cụ để xem lại danh sách API mà không cần mở giao diện trên trang.
+### 🎬 3. Bắt & Phân Tích API (Video, Project, Polling)
+- Bắt trọn vẹn request sinh Video qua Veo / Imagen / VideoFX.
+- Xuất lệnh cURL, Request Payload, Response, Token Bearer / Cookie.
+- Hỗ trợ Proxy Bridge kết nối Canvas Studio (Bypass CORS & reCAPTCHA).
 
 ---
 
-## 🚀 Hướng Dẫn Cài Đặt (Trong 1 phút)
+## 🚀 Hướng Dẫn Cài Đặt & Cập Nhật
 
-### Bước 1: Mở trang quản lý tiện ích trên trình duyệt
-- Trên **Google Chrome**: Mở tab mới và gõ `chrome://extensions`
-- Trên **Microsoft Edge**: Gõ `edge://extensions`
-- Trên **Brave / Cốc Cốc**: Gõ `brave://extensions` hoặc `coccoc://extensions`
-
-### Bước 2: Bật "Chế độ dành cho nhà phát triển" (Developer mode)
-- Gạt công tắc **Developer mode** (Chế độ cho nhà phát triển) ở góc trên bên phải màn hình sang trạng thái **BẬT (ON)**.
-
-### Bước 3: Tải tiện ích vào trình duyệt
-- Bấm vào nút **"Load unpacked"** (Tải tiện ích đã giải nén).
-- Chọn thư mục: `D:\Extendtions`
-- Bấm **Select Folder** (Chọn thư mục).
-
----
-
-## 🎯 Hướng Dẫn Sử Dụng
-
-1. Mở trình duyệt và truy cập vào: [https://labs.google/fx/tools/flow](https://labs.google/fx/tools/flow)
-2. Bạn sẽ thấy biểu tượng huy hiệu nổi **⚡ Flow API Sniffer** ở góc dưới bên phải màn hình.
-3. Thực hiện các thao tác:
-   - **Tạo một Project mới**: Extension sẽ ngay lập tức bắt API Tạo Project và hiển thị tag xanh lá 📁 **Tạo Project**.
-   - **Nhập Prompt & bấm Tạo Video**: Extension sẽ bắt API sinh video và hiển thị tag tím 🎬 **Tạo Video**.
-4. Bấm vào bảng điều khiển để:
-   - Xem cấu trúc Request Body (Prompt, độ phân giải, tỉ lệ khung hình, số giây, model,...).
-   - Bấm **📋 Copy cURL** để chạy lại request trong Postman / Python / Code tự động hóa của bạn.
+1. Mở trình duyệt Chrome và truy cập: `chrome://extensions`
+2. Bật công tắc **"Developer mode"** (Chế độ dành cho nhà phát triển) ở góc trên bên phải.
+3. Bấm nút **"Load unpacked"** (Tải tiện ích đã giải nén) và chọn thư mục:  
+   👉 `D:\Extendtions\Gg_flow`  
+   *(Nếu đã cài trước đó, chỉ cần bấm biểu tượng **Reload 🔄** tại thẻ tiện ích)*.
+4. Mở hoặc F5 lại trang Google Flow của bạn:  
+   🔗 **https://flow.google.com**
+5. Bạn sẽ thấy biểu tượng huy hiệu nổi **⚡ Flow Studio** ở góc dưới bên phải màn hình.
+6. Bấm vào huy hiệu, chọn tab **"🎨 Tạo Ảnh Hàng Loạt (0 Credits)"**, dán danh sách prompt và bấm **"🚀 Bắt Đầu Tạo Ảnh Hàng Loạt"**!

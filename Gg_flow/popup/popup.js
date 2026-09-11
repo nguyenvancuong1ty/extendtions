@@ -9,12 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
   let activeItem = null;
 
   const statTotal = document.getElementById('stat-total');
-  const statProject = document.getElementById('stat-project');
+  const statImage = document.getElementById('stat-image');
   const statVideo = document.getElementById('stat-video');
+  const statProject = document.getElementById('stat-project');
 
   const filterAll = document.getElementById('filter-all');
-  const filterProject = document.getElementById('filter-project');
+  const filterImage = document.getElementById('filter-image');
   const filterVideo = document.getElementById('filter-video');
+  const filterProject = document.getElementById('filter-project');
 
   const searchInput = document.getElementById('popup-search');
   const listContainer = document.getElementById('popup-request-list');
@@ -65,8 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Filters
   filterAll.addEventListener('click', () => setFilter('all', filterAll));
-  filterProject.addEventListener('click', () => setFilter('project', filterProject));
+  if (filterImage) filterImage.addEventListener('click', () => setFilter('image', filterImage));
   filterVideo.addEventListener('click', () => setFilter('video', filterVideo));
+  filterProject.addEventListener('click', () => setFilter('project', filterProject));
 
   function setFilter(filter, el) {
     currentFilter = filter;
@@ -113,12 +116,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // Render logic
   function render() {
     const totalCount = requests.length;
+    const imageCount = requests.filter((r) => r.category === 'image').length;
     const projectCount = requests.filter((r) => r.category === 'project').length;
     const videoCount = requests.filter((r) => r.category === 'video').length;
 
-    statTotal.textContent = totalCount;
-    statProject.textContent = projectCount;
-    statVideo.textContent = videoCount;
+    if (statTotal) statTotal.textContent = totalCount;
+    if (statImage) statImage.textContent = imageCount;
+    if (statProject) statProject.textContent = projectCount;
+    if (statVideo) statVideo.textContent = videoCount;
 
     let filtered = requests;
     if (currentFilter !== 'all') {

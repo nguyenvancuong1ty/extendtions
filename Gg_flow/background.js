@@ -23,7 +23,9 @@ function saveAuthState() {
 
 async function getActiveFlowTab() {
   try {
-    const tabs = await chrome.tabs.query({ url: '*://labs.google/*' });
+    const tabs = await chrome.tabs.query({
+      url: ['*://labs.google/*', '*://flow.google.com/*', '*://*.flow.google.com/*']
+    });
     if (tabs && tabs.length > 0) {
       return tabs[0];
     }
@@ -89,6 +91,21 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       console.log('🔑 [Background] Đã lưu reCAPTCHA Token độ dài:', message.token.length);
     }
     sendResponse({ received: true });
+    return true;
+  }
+
+  if (message.type === 'DOWNLOAD_IMAGE') {
+    chrome.downloads.download({
+      url: message.url,
+      filename: message.filename || `flow_image_${Date.now()}.png`,
+      saveAs: false
+    }, (downloadId) => {
+      if (chrome.runtime.lastError) {
+        sendResponse({ success: false, error: chrome.runtime.lastError.message });
+      } else {
+        sendResponse({ success: true, downloadId });
+      }
+    });
     return true;
   }
 

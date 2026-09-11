@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Google Labs Flow Studio & API Bridge",
-  "version": "1.3.0",
-  "description": "Bắt API Google Flow và đóng vai trò Proxy Bridge kết nối với Web App Canvas Studio (Bypass CORS & reCAPTCHA)",
+  "name": "Google Flow Studio & API Bridge (Video & 0-Credit Image Generator)",
+  "version": "2.0.0",
+  "description": "Tự động tạo ảnh hàng loạt Nano Banana 2 Lite (0 credits), bắt API Video Veo/Imagen và kết nối Canvas Studio",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -10,7 +10,7 @@
   },
   "action": {
     "default_popup": "popup/popup.html",
-    "default_title": "Google Flow Studio & Bridge",
+    "default_title": "Google Flow Studio (Video & Image)",
     "default_icon": {
       "16": "icons/icon16.png",
       "48": "icons/icon48.png",
@@ -24,11 +24,16 @@
     "storage",
     "activeTab",
     "scripting",
-    "tabs"
+    "tabs",
+    "downloads"
   ],
   "host_permissions": [
     "*://labs.google/*",
+    "*://flow.google.com/*",
+    "*://*.flow.google.com/*",
     "*://*.google.com/*",
+    "*://*.google/*",
+    "*://flow-content.google/*",
     "*://*.googleapis.com/*",
     "http://localhost/*",
     "http://127.0.0.1/*"
@@ -43,7 +48,9 @@
   "content_scripts": [
     {
       "matches": [
-        "*://labs.google/*"
+        "*://labs.google/*",
+        "*://flow.google.com/*",
+        "*://*.flow.google.com/*"
       ],
       "js": ["content/content.js"],
       "css": ["content/content.css"],
@@ -65,7 +72,9 @@
         "icons/*"
       ],
       "matches": [
-        "*://labs.google/*"
+        "*://labs.google/*",
+        "*://flow.google.com/*",
+        "*://*.flow.google.com/*"
       ]
     }
   ]
