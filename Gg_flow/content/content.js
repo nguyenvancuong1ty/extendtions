@@ -514,8 +514,8 @@
               <div class="setting-item">
                 <label>🔢 Biến Thể (0 credits):</label>
                 <select id="flow-variations-count" class="flow-select">
-                  <option value="1">x1 Ảnh (Nhanh)</option>
-                  <option value="2" selected>x2 Ảnh (0 credits - Khuyên dùng)</option>
+                  <option value="1" selected>x1 Ảnh (Nhanh - Khuyên dùng)</option>
+                  <option value="2">x2 Ảnh (0 credits)</option>
                   <option value="3">x3 Ảnh (0 credits)</option>
                   <option value="4">x4 Ảnh (0 credits - Tối đa)</option>
                 </select>
@@ -548,6 +548,11 @@
               <label class="flow-checkbox-label">
                 <input type="checkbox" id="flow-auto-preview" />
                 <span>🔍 Tự động mở xem trước khi sinh xong</span>
+              </label>
+              <label class="flow-checkbox-label" title="Tự động gọi AI LaMa (Port 5055) xóa sạch logo ngôi sao Gemini ở góc dưới">
+                <input type="checkbox" id="flow-clean-watermark" checked />
+                <span>🪄 Tự động xóa logo Gemini (AI LaMa)</span>
+                <span id="flow-clean-status" style="font-size: 11px; margin-left: 4px; font-weight: 600; color: #10b981;">(Đang kiểm tra...)</span>
               </label>
             </div>
 
@@ -802,7 +807,12 @@
               capturedImages.unshift(newImgObj);
             }
             if (document.getElementById('flow-auto-download')?.checked) {
-              logFlowProgress('📥 Tự động tải ảnh về máy (.PNG)...', 'log-info');
+              const willClean = document.getElementById('flow-clean-watermark')?.checked;
+              if (willClean) {
+                logFlowProgress('🪄 Đang xóa logo Gemini (AI LaMa) & tải ảnh sạch (.PNG)...', 'log-info');
+              } else {
+                logFlowProgress('📥 Tự động tải ảnh về máy (.PNG)...', 'log-info');
+              }
               triggerFlowImageDownload(newImgObj);
             }
           }
@@ -1036,19 +1046,21 @@
   }
 
   // Tải ảnh về máy
-  function triggerFlowImageDownload(img) {
+  function triggerFlowImageDownload(img, cleanWatermarkOverride = null) {
     const cleanPrompt = (img.prompt || 'flow_image')
       .slice(0, 35)
       .trim()
       .replace(/[\\/*?:"<>|]/g, '_')
       .replace(/\s+/g, '_');
-    const filename = `Flow_${cleanPrompt}_${Date.now().toString().slice(-4)}.png`;
+    const filename = `Flow_Images/Flow_${cleanPrompt}_${Date.now().toString().slice(-4)}.png`;
+    const cleanWatermark = cleanWatermarkOverride ?? (document.getElementById('flow-clean-watermark')?.checked ?? true);
 
     try {
       chrome.runtime.sendMessage({
         type: 'DOWNLOAD_IMAGE',
         url: img.dataUrl || img.url,
-        filename
+        filename,
+        cleanWatermark
       }, (res) => {
         if (chrome.runtime.lastError || !res?.success) {
           downloadViaAnchor(img.dataUrl || img.url, filename);
@@ -1455,6 +1467,117 @@
       const req = capturedRequests.find((r) => r.id === selectedRequestId);
       if (req) copyToClipboard(req.url, this, 'Đã copy URL!');
     });
+
+    // Theo dõi trạng thái của AI Watermark Cleaner Service (LaMa Port 5055)
+    function checkCleanerServiceStatus() {
+      const statusEl = document.getElementById('flow-clean-status');
+      if (!statusEl) return;
+      try {
+        chrome.runtime.sendMessage({ type: 'CHECK_WATERMARK_SERVICE' }, (res) => {
+          if (chrome.runtime.lastError || !res?.available) {
+            statusEl.innerText = '(⚪ Service chưa bật - Chạy run_watermark_cleaner.bat)';
+            statusEl.style.color = '#94a3b8';
+          } else {
+            statusEl.innerText = '(🟢 AI Sẵn Sàng)';
+            statusEl.style.color = '#10b981';
+          }
+        });
+      } catch (_) {
+        statusEl.innerText = '(⚪ Service chưa bật)';
+        statusEl.style.color = '#94a3b8';
+      }
+    }
+    checkCleanerServiceStatus();
+    setInterval(checkCleanerServiceStatus, 8000);
+
+    // ---------------------------------------------------------
+    // Lắng nghe lệnh tạo ảnh từ API nội bộ (Port 5055)
+    // ---------------------------------------------------------
+    let isProcessingApiJob = false;
+
+    async function pollApiJob() {
+      if (isProcessingApiJob || isBatchRunning) return;
+
+      try {
+        const resp = await fetch('http://127.0.0.1:5055/api/jobs/poll');
+        if (!resp.ok) return;
+        const data = await resp.json();
+
+        if (data && data.hasJob && data.job) {
+          const job = data.job;
+          isProcessingApiJob = true;
+          logFlowProgress(`🤖 [Internal API] Nhận job ${job.id} (${job.prompts.length} prompt)...`, 'log-info');
+
+          const allResults = [];
+          const errors = [];
+          const aspectRatio = job.aspectRatio || '16:9';
+          const variations = job.variations || 1;
+
+          for (let i = 0; i < job.prompts.length; i++) {
+            const promptText = job.prompts[i];
+            logFlowProgress(`⚡ [API Job] [${i + 1}/${job.prompts.length}] Đang sinh ảnh: "${promptText.slice(0, 40)}..."`, 'log-info');
+
+            try {
+              const task = {
+                prompt: promptText,
+                aspectRatio,
+                count: variations,
+              };
+
+              const newImages = await executeViaDom(task);
+
+              if (newImages && newImages.length > 0) {
+                for (const imgObj of newImages) {
+                  if (!capturedImages.some((ci) => ci.dataUrl === imgObj.dataUrl)) {
+                    capturedImages.unshift(imgObj);
+                  }
+                  triggerFlowImageDownload(imgObj, job.cleanWatermark);
+                  allResults.push({
+                    prompt: promptText,
+                    url: imgObj.dataUrl || imgObj.url,
+                    filename: `Flow_Images/Flow_${(promptText || 'flow').slice(0, 35).trim().replace(/[\\/*?:"<>|]/g, '_').replace(/\\s+/g, '_')}_${Date.now().toString().slice(-4)}.png`,
+                  });
+                }
+                saveData();
+                renderGallery();
+              }
+            } catch (promptErr) {
+              errors.push(`prompt ${i + 1}: ${promptErr.message}`);
+              logFlowProgress(`⚠️ [API Job] Lỗi khi tạo prompt [${i + 1}]: ${promptErr.message}`, 'log-error');
+            }
+
+            if (i < job.prompts.length - 1) {
+              await new Promise((r) => setTimeout(r, 2000));
+            }
+          }
+
+          // Báo cáo hoàn thành job cho API server
+          const expectedImages = job.prompts.length * variations;
+          const succeeded = errors.length === 0 && allResults.length === expectedImages;
+          await fetch('http://127.0.0.1:5055/api/jobs/complete', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              job_id: job.id,
+              success: succeeded,
+              total_generated: allResults.length,
+              images: allResults,
+              error: succeeded ? undefined : `Expected ${expectedImages} images, got ${allResults.length}. ${errors.join('; ')}`.trim(),
+            }),
+          });
+
+          logFlowProgress(succeeded
+            ? `✅ [Internal API] Hoàn thành job ${job.id}! Đã phản hồi về API client.`
+            : `⚠️ [Internal API] Job ${job.id} không đủ artifact; API client sẽ nhận lỗi.`,
+            succeeded ? 'log-success' : 'log-error');
+          isProcessingApiJob = false;
+        }
+      } catch (_) {
+        // Service offline thì bỏ qua
+      }
+    }
+
+    setInterval(pollApiJob, 2000);
   }
 
   // -------------------------------------------------------------

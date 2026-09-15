@@ -94,18 +94,65 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     return true;
   }
 
+  if (message.type === 'CHECK_WATERMARK_SERVICE') {
+    fetch('http://127.0.0.1:5055/health')
+      .then((res) => res.json())
+      .then((data) => sendResponse({ available: true, data }))
+      .catch(() => sendResponse({ available: false }));
+    return true;
+  }
+
   if (message.type === 'DOWNLOAD_IMAGE') {
-    chrome.downloads.download({
-      url: message.url,
-      filename: message.filename || `flow_image_${Date.now()}.png`,
-      saveAs: false
-    }, (downloadId) => {
-      if (chrome.runtime.lastError) {
-        sendResponse({ success: false, error: chrome.runtime.lastError.message });
-      } else {
-        sendResponse({ success: true, downloadId });
+    (async () => {
+      let downloadUrl = message.url;
+      let filename = message.filename || `flow_image_${Date.now()}.png`;
+      if (!filename.startsWith('Flow_Images/')) {
+        filename = `Flow_Images/${filename}`;
       }
-    });
+
+      if (message.cleanWatermark) {
+        try {
+          let base64Data = downloadUrl;
+          if (!base64Data.startsWith('data:')) {
+            const resp = await fetch(downloadUrl);
+            const blob = await resp.blob();
+            base64Data = await new Promise((resolve) => {
+              const reader = new FileReader();
+              reader.onloadend = () => resolve(reader.result);
+              reader.readAsDataURL(blob);
+            });
+          }
+
+          const cleanResp = await fetch('http://127.0.0.1:5055/clean', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ image: base64Data, filename }),
+          });
+
+          if (cleanResp.ok) {
+            const cleanResult = await cleanResp.json();
+            if (cleanResult && cleanResult.cleanedImage) {
+              downloadUrl = cleanResult.cleanedImage;
+              console.log('✨ [Background] Đã xóa logo Gemini qua AI LaMa thành công!');
+            }
+          }
+        } catch (err) {
+          console.warn('⚠️ [Background] Watermark service chưa sẵn sàng, tải ảnh thông thường:', err.message);
+        }
+      }
+
+      chrome.downloads.download({
+        url: downloadUrl,
+        filename: filename,
+        saveAs: false,
+      }, (downloadId) => {
+        if (chrome.runtime.lastError) {
+          sendResponse({ success: false, error: chrome.runtime.lastError.message });
+        } else {
+          sendResponse({ success: true, downloadId });
+        }
+      });
+    })();
     return true;
   }
 
