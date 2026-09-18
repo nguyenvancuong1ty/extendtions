@@ -1,19 +1,25 @@
 {
   "manifest_version": 3,
-  "name": "YT Studio Extractor",
-  "version": "1.0",
-  "description": "Intercept YouTube Studio Analytics Data",
+  "name": "Studio SFX Download Bridge",
+  "version": "1.1",
+  "description": "Attaches a user-selected Pixabay download to the pending Flux Studio SFX marker.",
   "permissions": [
     "storage",
     "activeTab",
-    "scripting"
+    "scripting",
+    "downloads"
   ],
   "host_permissions": [
-    "*://*.youtube.com/*"
+    "*://*.youtube.com/*",
+    "https://pixabay.com/*",
+    "http://127.0.0.1:7861/*"
   ],
   "action": {
     "default_popup": "popup.html",
     "default_title": "YT Studio Extractor"
+  },
+  "background": {
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
